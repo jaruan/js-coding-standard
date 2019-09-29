@@ -1,0 +1,3 @@
+--file ./node_modules/@registry/registry-node-scripts/config/mochaSetup.js
+--recursive "./**/test/**/**.mocha.js"
+--exit

@@ -1,0 +1,48 @@
+{
+  "name": "node-js-practice",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npx mocha",
+    "coverage": "npx nyc --reporter=lcov --reporter=text npx mocha",
+    "publish-qa": "npm pack && aws lambda update-function-code --function-name qa-membership-sns --zip-file fileb://package.zip",
+    "publish-prod": "npm pack && aws lambda update-function-code --function-name prod-membership-sns --zip-file fileb://package.zip",
+    "postpack": "tarball=$(npm list --depth 0 | sed 's/@/-/g; s/ .*/.tgz/g; 1q;'); tar -tf $tarball | sed 's/^package\\///' | zip -@r package; rm $tarball"
+  },
+  "keywords": [
+    "membership"
+  ],
+  "author": "TKWW",
+  "license": "ISC",
+  "devDependencies": {
+    "@registry/registry-node-scripts": "0.2.1",
+    "eslint": "6.3.0",
+    "faker": "4.1.0",
+    "mocha": "6.2.0",
+    "sinon": "7.4.2"
+  },
+  "bundleDependencies": [
+    "@registry/data-model",
+    "@registry/hapi-service-utils",
+    "@registry/registry-core-lib",
+    "aws-sdk",
+    "convict",
+    "joi",
+    "jsonwebtoken",
+    "lodash",
+    "moment"
+  ],
+  "dependencies": {
+    "@registry/data-model": "5.0.0",
+    "@registry/hapi-service-utils": "1.0.2",
+    "@registry/registry-core-lib": "3.2.0",
+    "aws-sdk": "2.522.0",
+    "axios": "0.19.0",
+    "convict": "5.1.0",
+    "joi": "14.3.1",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "4.17.15",
+    "moment": "2.24.0"
+  }
+}
