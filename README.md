@@ -1,2 +1,2 @@
-# node_js_practice
+# js coding standard
 For Tkww Standard

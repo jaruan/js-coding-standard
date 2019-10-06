@@ -1,8 +1,8 @@
 'use strict';
 
 const sinon = require('sinon');
-const defineFunction = require('../src/define-function');
-const DefineClass = require('../src/define-class');
+const defineFunction = require('../src/defineFunction');
+const DefineClass = require('../src/defineClass');
 
 describe('test', () => {
     describe('Mocha Function', () => {
@@ -12,7 +12,7 @@ describe('test', () => {
             mockSumFunction = sinon.stub(defineFunction, '_sum').callsFake(() => {
                 console.log('Mock sum method');
 
-                return 1 + 1;
+                return 1 + 2;
             });
         });
 
