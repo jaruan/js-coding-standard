@@ -7,6 +7,7 @@ const getRandomNumber = () => {
 class DefineClass {
     constructor(param) {
         this._param = param;
+        console.log('Init DefineClass!!!!');
     }
     get param() {
         return this._param;
@@ -23,6 +24,10 @@ class DefineClass {
     calculate() {
         this._sum();
         console.log('This is a public method');
+    }
+
+    static staticFunction() {
+        console.log('This is a static function');
     }
 }
 
